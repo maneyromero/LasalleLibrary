@@ -13,6 +13,14 @@
         android:layout_height="match_parent"
          />
 
+    <com.example.deletebutton.CustomButton
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        
+        android:background="@color/white"
+        android:id="@+id/delete"
+        android:text="DELETE ALL"
+        ></com.example.deletebutton.CustomButton>
     <Button
         android:id="@+id/goMain"
         style="@style/Widget.AppCompat.Button.Borderless"

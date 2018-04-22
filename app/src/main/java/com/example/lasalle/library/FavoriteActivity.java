@@ -31,7 +31,7 @@ public class FavoriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorite);
         this.setTitle("Favorite books");
         Button main = (Button) findViewById(R.id.goMain);
-        favAdapter = new FavAdapter(this,arrayFavs);
+        favAdapter = new FavAdapter(this, arrayFavs);
         favList = (ListView) findViewById(R.id.favBooks);
         favList.setAdapter(favAdapter);
         main.setOnClickListener(new View.OnClickListener() {
@@ -45,33 +45,32 @@ public class FavoriteActivity extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
-        if(bundle!=null){
+        if (bundle != null) {
             book = bundle.getParcelable("Libro");
 
 
             //No conseguimos que no añada los ya existentes, aun comparando los objetos.
             yaExiste = false;
             for (Book bookItem : books) {
-                if(bookItem.equals(book)){
-                    yaExiste=true;
+                if (bookItem.equals(book)) {
+                    yaExiste = true;
                 }
                 //Esta verificación no está funcionando, hay que mirar porqué debugeando
-                if(bookItem.getAuthor().toString() == book.getAuthor().toString() && bookItem.getName().toString() == book.getName().toString()){
-                    Log.d(" ERROR",bookItem.getName().toString());
+                if (bookItem.getAuthor().toString() == book.getAuthor().toString() && bookItem.getName().toString() == book.getName().toString()) {
+                    Log.d(" ERROR", bookItem.getName().toString());
                     Log.d(" ERROR", book.getName().toString());
-                    yaExiste=true;
+                    yaExiste = true;
                 }
             }
 
-            if(!yaExiste){
+            if (!yaExiste) {
                 arrayFavs.add(book);
-
 
 
                 for (Book book : books) {
                     favAdapter.add(book); // Añadimos libros atraves del adapter
                 }
-            }else{
+            } else {
                 Toast.makeText(this, R.string.alreadyInFav,
                         Toast.LENGTH_LONG).show();
             }

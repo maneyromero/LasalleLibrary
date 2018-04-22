@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LasalleLibrary-master.iml" filepath="$PROJECT_DIR$/LasalleLibrary-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/deletebutton/deletebutton.iml" filepath="$PROJECT_DIR$/deletebutton/deletebutton.iml" />
     </modules>
   </component>
 </project>
