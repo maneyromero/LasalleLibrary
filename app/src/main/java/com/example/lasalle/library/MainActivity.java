@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Button.OnClickListener {
 
     private static final String DEFAULT_QUERY = "android";
     private ListView lvBooks;
@@ -44,11 +45,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Button favorites = (Button) findViewById(R.id.goFavorites);
         //Seteamos las views
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         lvBooks = (ListView) findViewById(R.id.lvBooks);
-
+        favorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent favScreen = new Intent(getApplicationContext(), FavoriteActivity.class);
+                startActivity(favScreen);
+            }
+        });
 
 
         //Creamos el bookAdapter i lo volcamos a la lisView
@@ -95,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 searchQuery = query;
                 // Reseteamos la busqueda
                 searchView.clearFocus();
-                searchView.setQuery("", false);
+                searchView.setQuery(getString(R.string.defaultSearchText), false);
                 searchView.setIconified(true);
                 searchItem.collapseActionView();
 
@@ -126,6 +133,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
 
     public class BookClient extends AsyncTask<String, Void, JSONObject> {
 

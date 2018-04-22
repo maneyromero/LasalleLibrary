@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -29,30 +30,53 @@ public class FavoriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite);
         this.setTitle("Favorite books");
+        Button main = (Button) findViewById(R.id.goMain);
+        favAdapter = new FavAdapter(this,arrayFavs);
+        favList = (ListView) findViewById(R.id.favBooks);
+        favList.setAdapter(favAdapter);
+        main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mainScreen = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(mainScreen);
+            }
+        });
+
+
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
-        book = bundle.getParcelable("Libro");
-        favList = (ListView) findViewById(R.id.favBooks);
-        //No conseguimos que no añada los ya existentes, aun comparando los objetos.
-         yaExiste = false;
-        for (Book bookItem : books) {
-            if(bookItem.equals(book)){
-                yaExiste=true;
+        if(bundle!=null){
+            book = bundle.getParcelable("Libro");
+
+
+            //No conseguimos que no añada los ya existentes, aun comparando los objetos.
+            yaExiste = false;
+            for (Book bookItem : books) {
+                if(bookItem.equals(book)){
+                    yaExiste=true;
+                }
+                //Esta verificación no está funcionando, hay que mirar porqué debugeando
+                if(bookItem.getAuthor().toString() == book.getAuthor().toString() && bookItem.getName().toString() == book.getName().toString()){
+                    Log.d(" ERROR",bookItem.getName().toString());
+                    Log.d(" ERROR", book.getName().toString());
+                    yaExiste=true;
+                }
+            }
+
+            if(!yaExiste){
+                arrayFavs.add(book);
+
+
+
+                for (Book book : books) {
+                    favAdapter.add(book); // Añadimos libros atraves del adapter
+                }
+            }else{
+                Toast.makeText(this, R.string.alreadyInFav,
+                        Toast.LENGTH_LONG).show();
             }
         }
 
-        if(!yaExiste){
-            arrayFavs.add(book);
-            favAdapter = new FavAdapter(this,arrayFavs);
-            favList.setAdapter(favAdapter);
-
-            for (Book book : books) {
-                favAdapter.add(book); // Añadimos libros atraves del adapter
-            }
-        }else{
-            Toast.makeText(this, .getString(R.string.favorite_repeat),
-                    Toast.LENGTH_LONG).show();
-        }
 
         favList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

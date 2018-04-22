@@ -7,9 +7,9 @@
     <string name="search_title">Search Books</string>
     <string name="title_activity_search_results">Search Results</string>
     <string name="details">DETAILS</string>
-    <string name="add_to_fav">ADD TO FAV</string>
+    <string name="add_to_fav">ADD TO FAVORITES</string>
     <string name="favorite_repeat">This book is already in your favorites.</string>
-    <string name="greater_than_5">Password length must be 5 or greater!</string>
+    <string name="greater_than_5">Password length must be 6 or greater!</string>
     <string name="wrong_email">You are not using a correct email.</string>
     <string name="password_not_match">Password fields do not match.</string>
     <string name="register_ok">You are registered now!</string>
@@ -18,4 +18,6 @@
     <string name="user_not_registered">The username is not registered.</string>
     <string name="password_empty">Password not entered.</string>
     <string name="email_empty">Email not entered.</string>
+    <string name="alreadyInFav">This book is already in your favorites</string>
+    <string name="defaultSearchText">Search a book</string>
 </resources>

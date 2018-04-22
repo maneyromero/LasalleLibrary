@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="MainActivity">
 
     <ProgressBar
         android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:max="100"
         android:indeterminate="true"
+        android:max="100"
         android:visibility="gone" />
 
-        <ListView
-            android:id="@+id/lvBooks"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <ListView
+        android:id="@+id/lvBooks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/goFavorites"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/progress_bar"
+        android:layout_toRightOf="@+id/progress_bar"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:text="GO TO FAVORITES" />
 
 
-</LinearLayout>
+</RelativeLayout>

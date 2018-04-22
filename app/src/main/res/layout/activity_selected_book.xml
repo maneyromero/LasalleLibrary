@@ -11,48 +11,56 @@
         android:id="@+id/imageDetail"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="@dimen/margen"
+        android:layout_marginTop="@dimen/margen"
+        android:layout_marginBottom="@dimen/margen"
+        android:layout_marginRight="@dimen/margen"
         android:adjustViewBounds="true" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/margen"
+        android:layout_marginTop="@dimen/margen"
+        android:layout_marginBottom="@dimen/textVerticalSpacing"
+        android:layout_marginRight="@dimen/margen"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView3"
-        android:layout_marginTop="20dp"
+
         android:textAlignment="center" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margen"
+        android:layout_marginTop="@dimen/textVerticalSpacing"
+        android:layout_marginBottom="@dimen/margen"
+        android:layout_marginRight="@dimen/margen"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="20dp"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/details"
+        android:layout_centerVertical="true"
         android:textAlignment="center" />
 
     <Button
         android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="57dp"
-        android:background="@drawable/button_bg"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginBottom="@dimen/margen"
+        android:background="@color/white"
         android:text="@string/add_to_fav" />
 
 </RelativeLayout>
