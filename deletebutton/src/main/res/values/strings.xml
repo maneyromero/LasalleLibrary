@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DeleteButton</string>
+    <string name="delete_all">DELETE ALL</string>
 </resources>

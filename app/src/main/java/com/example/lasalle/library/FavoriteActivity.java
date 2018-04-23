@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.deletebutton.CustomButton;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FavoriteActivity extends AppCompatActivity {
+public class FavoriteActivity extends AppCompatActivity implements CustomButton.OnDeleteButtonClickedListener{
     ListView favList;
     public static ArrayList<Book> arrayFavs = new ArrayList<>();
     List<Book> books = new ArrayList<>();
@@ -31,6 +33,7 @@ public class FavoriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorite);
         this.setTitle("Favorite books");
         Button main = (Button) findViewById(R.id.goMain);
+        CustomButton delete = findViewById(R.id.delete);
         favAdapter = new FavAdapter(this, arrayFavs);
         favList = (ListView) findViewById(R.id.favBooks);
         favList.setAdapter(favAdapter);
@@ -42,7 +45,7 @@ public class FavoriteActivity extends AppCompatActivity {
             }
         });
 
-
+        delete.setOnDeleteButtonClickedListener(this);
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -55,6 +58,7 @@ public class FavoriteActivity extends AppCompatActivity {
                 if (bookItem.equals(book)) {
                     yaExiste = true;
                 }
+
                 //Esta verificación no está funcionando, hay que mirar porqué debugeando
                 if (bookItem.getAuthor().toString() == book.getAuthor().toString() && bookItem.getName().toString() == book.getName().toString()) {
                     Log.d(" ERROR", bookItem.getName().toString());
@@ -85,5 +89,12 @@ public class FavoriteActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onDeleteButtonClicked() {
+
+        arrayFavs.removeAll(arrayFavs);
+        favAdapter.notifyDataSetChanged();
     }
 }

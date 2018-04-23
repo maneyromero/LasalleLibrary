@@ -11,5 +11,6 @@
     <dimen name="margen">16dp</dimen>
     <dimen name="button_height">50dp</dimen>
     <dimen name="textVerticalSpacing">30dp</dimen>
+    <dimen name="margin_bottom_delete">60dp</dimen>
 
 </resources>

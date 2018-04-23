@@ -20,4 +20,5 @@
     <string name="email_empty">Email not entered.</string>
     <string name="alreadyInFav">This book is already in your favorites</string>
     <string name="defaultSearchText">Search a book</string>
+    <string name="delete_all">DELETE ALL</string>
 </resources>

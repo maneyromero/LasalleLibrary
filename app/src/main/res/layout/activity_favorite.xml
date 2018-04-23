@@ -14,13 +14,18 @@
          />
 
     <com.example.deletebutton.CustomButton
+        android:id="@+id/delete"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_bottom_delete"
         
-        android:background="@color/white"
-        android:id="@+id/delete"
+        android:layout_centerInParent="true"
+        android:paddingLeft="170dp"
+        android:layout_gravity="bottom"
         android:text="DELETE ALL"
-        ></com.example.deletebutton.CustomButton>
+        android:visibility="visible"/>
     <Button
         android:id="@+id/goMain"
         style="@style/Widget.AppCompat.Button.Borderless"
